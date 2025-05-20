@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow rounded">
+        <div class="card-header bg-secondary text-white">
+          <h4 class="mb-0">{{ customer_record.first_name }} {{ customer_record.last_name }}</h4>
+        </div>
+        <div class="card-body">
+          <p><strong>Email:</strong> {{ customer_record.email }}</p>
+          <p><strong>Phone Number:</strong> {{ customer_record.phone_number }}</p>
+          <p><strong>Country:</strong> {{ customer_record.country }}</p>
+          <p><strong>City:</strong> {{ customer_record.city }}</p>
+          <p><strong>Address:</strong> {{ customer_record.address }}</p>
+          <p><strong>City:</strong> {{ customer_record.branch }}</p>
+          <p><strong>City:</strong> {{ customer_record.items }}</p>
+          <p><strong>Created At:</strong> {{ customer_record.created_at|date:"Y-m-d H:i" }}</p>
+          <p><strong>Id:</strong> {{ customer_record.id }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <div>
+              <a href="{% url 'update_customer' customer_record.id %}" class="btn btn-primary">Update</a>
+            </div>
+          
+            <div>
+              <a href="{% url 'home' %}" class="btn btn-secondary me-2">Back</a>
+              <a href="{% url 'delete_customer' customer_record.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+            </div>
+          </div>
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

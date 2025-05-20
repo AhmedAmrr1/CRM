@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">Django CRM</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Elite Store</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -12,18 +12,31 @@
 
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-link d-flex align-items-center gap-1" href="{% url 'add_customer' %}">
+              <i class="bi bi-person-plus-fill"></i> Add Customer
+            </a>
           </li>
-  
-          {% else %}
+        
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
+            <a class="nav-link d-flex align-items-center gap-1 text-danger" href="{% url 'logout' %}">
+              <i class="bi bi-box-arrow-right"></i> Logout
+            </a>
+          </li>
+        
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-1" href="{% url 'register' %}">
+              <i class="bi bi-person-plus-fill"></i> Register
+            </a>
           </li>    
-
+        
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Login</a>
+            <a class="nav-link d-flex align-items-center gap-1" href="{% url 'home' %}">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
           </li>        
-          {% endif %}
+        {% endif %}
+        
          
           
         </ul>
